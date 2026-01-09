@@ -1,0 +1,211 @@
+g<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Music Video Suite - កម្មវិធីបង្កើតវីដេអូចម្រៀង</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;700&display=swap');
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+            border-color: #38bdf8;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-20">
+
+    <!-- Header -->
+    <header class="p-6 border-b border-slate-700 glass-card sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold gradient-text"><i class="fas fa-music mr-2"></i> AI Music Studio Pro</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-sky-400">ផ្ទាំងគ្រប់គ្រង</a>
+                <a href="#" class="hover:text-sky-400">បណ្ណាល័យ</a>
+                <a href="#" class="hover:text-sky-400">ការកំណត់</a>
+            </nav>
+            <button class="bg-sky-600 hover:bg-sky-500 px-4 py-2 rounded-lg text-sm transition">ចូលប្រើប្រាស់</button>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-6">
+        <!-- Main Hero Section -->
+        <section class="text-center my-12">
+            <h2 class="text-4xl font-bold mb-4">បង្កើតវីដេអូចម្រៀងដោយស្វ័យប្រវត្តិ</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto">ប្រើប្រាស់បច្ចេកវិទ្យា AI ដើម្បីបំប្លែងបទចម្រៀង បង្កើតតន្ត្រីសម្រាកកាយ និងវីដេអូខារ៉ាអូខេដោយចុចតែមួយឃ្លីក។</p>
+        </section>
+
+        <!-- Tool Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- 1. AI Cover Tool -->
+            <div class="feature-card p-6 rounded-2xl glass-card">
+                <div class="w-12 h-12 bg-sky-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fas fa-microphone-alt text-sky-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">AI Song Cover</h3>
+                <p class="text-slate-400 text-sm mb-4">ប្តូរបទចម្រៀងខ្មែរទៅជាភាសាបរទេស (អង់គ្លេស, កូរ៉េ, ចិន...) ដោយរក្សាសំឡេងដើម។</p>
+                <div class="space-y-3">
+                    <select class="w-full bg-slate-800 border border-slate-700 rounded-md p-2 text-sm">
+                        <option>ជ្រើសរើសភាសាគោលដៅ</option>
+                        <option>English</option>
+                        <option>Korean</option>
+                        <option>Chinese</option>
+                    </select>
+                    <button onclick="startProcessing('AI Cover')" class="w-full bg-slate-700 hover:bg-slate-600 py-2 rounded-md text-sm transition">ចាប់ផ្តើមបំប្លែង</button>
+                </div>
+            </div>
+
+            <!-- 2. Relaxing Music Creator -->
+            <div class="feature-card p-6 rounded-2xl glass-card">
+                <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fas fa-leaf text-emerald-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Relaxing Music Video</h3>
+                <p class="text-slate-400 text-sm mb-4">បង្កើតតន្ត្រី និងវីដេអូសម្រាប់សម្រាកកាយ ឬយោគៈ តាមរយៈពេលដែលអ្នកចង់បាន។</p>
+                <div class="flex gap-2 mb-4">
+                    <input type="number" id="relaxHours" placeholder="ចំនួនម៉ោង" class="w-full bg-slate-800 border border-slate-700 rounded-md p-2 text-sm">
+                    <button onclick="generateRelaxing()" class="bg-emerald-600 hover:bg-emerald-500 px-4 py-2 rounded-md text-sm transition text-nowrap">បង្កើត</button>
+                </div>
+                <div class="flex gap-2">
+                    <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Nature</span>
+                    <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Lofi</span>
+                    <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Piano</span>
+                </div>
+            </div>
+
+            <!-- 3. Karaoke & Lyrics Builder -->
+            <div class="feature-card p-6 rounded-2xl glass-card">
+                <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fas fa-closed-captioning text-purple-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Karaoke & Lyrics</h3>
+                <p class="text-slate-400 text-sm mb-4">បង្កើតអក្សររត់ស្វ័យប្រវត្តិ (Subtitles) សម្រាប់វីដេអូចម្រៀង និងខារ៉ាអូខេ។</p>
+                <div class="space-y-2">
+                    <button class="w-full border border-dashed border-slate-600 py-4 rounded-md text-slate-400 text-xs hover:bg-slate-800 transition">
+                        <i class="fas fa-upload mb-1"></i><br>បញ្ចូលឯកសារចម្រៀង (MP3/WAV)
+                    </button>
+                    <div class="flex items-center justify-between text-xs text-slate-400">
+                        <label><input type="checkbox" class="mr-1"> បន្ថែម Effects ភ្លើង</label>
+                        <label><input type="checkbox" class="mr-1"> បកប្រែអត្ថបទ</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Kids Song Generator -->
+            <div class="feature-card p-6 rounded-2xl glass-card">
+                <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fas fa-child text-yellow-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">ចម្រៀងកុមារ</h3>
+                <p class="text-slate-400 text-sm mb-4">បង្កើតបទចម្រៀងអប់រំកុមារ ជាមួយរូបភាពតុក្កតាមានចលនា 3D/2D។</p>
+                <button onclick="startProcessing('Kids Song')" class="w-full bg-yellow-600/20 hover:bg-yellow-600/40 text-yellow-400 py-2 rounded-md text-sm transition">បង្កើតបទថ្មី</button>
+            </div>
+
+            <!-- 5. Global Content Adaptor -->
+            <div class="feature-card p-6 rounded-2xl glass-card">
+                <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fas fa-globe text-pink-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Cover បទបរទេស</h3>
+                <p class="text-slate-400 text-sm mb-4">យកបទចម្រៀងល្បីៗលើពិភពលោកមកធ្វើជា Version ថ្មីតាមស្ទីលដែលអ្នកចង់បាន (Rock, Jazz, EDM)។</p>
+                <input type="text" placeholder="លីងវីដេអូ YouTube/TikTok" class="w-full bg-slate-800 border border-slate-700 rounded-md p-2 text-sm mb-2">
+            </div>
+
+            <!-- 6. Smart Background Editor -->
+            <div class="feature-card p-6 rounded-2xl glass-card">
+                <div class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fas fa-magic text-orange-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">មុខងារបន្ថែម</h3>
+                <p class="text-slate-400 text-sm mb-4">កែសម្រួលផ្ទៃខាងក្រោយ បន្ថែម Visualizer និងការនាំចេញកម្រិត 4K 60fps។</p>
+                <div class="flex flex-wrap gap-2">
+                    <button class="bg-slate-800 px-3 py-1 rounded text-[10px] hover:bg-orange-500/20 transition">4K Export</button>
+                    <button class="bg-slate-800 px-3 py-1 rounded text-[10px] hover:bg-orange-500/20 transition">Visualizer</button>
+                    <button class="bg-slate-800 px-3 py-1 rounded text-[10px] hover:bg-orange-500/20 transition">Audio Enhancer</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Processing Status (Hidden by default) -->
+        <div id="statusModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[100] p-4">
+            <div class="glass-card p-8 rounded-3xl max-w-md w-full text-center">
+                <div id="loader" class="animate-spin text-4xl text-sky-500 mb-4"><i class="fas fa-circle-notch"></i></div>
+                <h4 id="statusTitle" class="text-xl font-bold mb-2">កំពុងដំណើរការ...</h4>
+                <p id="statusMsg" class="text-slate-400 text-sm mb-6">AI កំពុងវិភាគ និងបង្កើតមាតិកាជូនអ្នក។ សូមរង់ចាំមួយភ្លែត។</p>
+                <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden mb-6">
+                    <div id="progressBar" class="bg-sky-500 h-full w-0 transition-all duration-500"></div>
+                </div>
+                <button onclick="closeModal()" class="text-slate-500 hover:text-white text-sm">បោះបង់</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Action Bar -->
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 glass-card px-6 py-3 rounded-full flex items-center space-x-8 shadow-2xl border-sky-500/30">
+        <button class="flex flex-col items-center text-sky-400"><i class="fas fa-home"></i><span class="text-[10px]">ដើម</span></button>
+        <button class="flex flex-col items-center text-slate-400 hover:text-white"><i class="fas fa-folder"></i><span class="text-[10px]">គម្រោង</span></button>
+        <button class="w-12 h-12 bg-sky-600 rounded-full flex items-center justify-center -mt-8 border-4 border-[#0f172a] shadow-lg"><i class="fas fa-plus text-white"></i></button>
+        <button class="flex flex-col items-center text-slate-400 hover:text-white"><i class="fas fa-bolt"></i><span class="text-[10px]">លឿន</span></button>
+        <button class="flex flex-col items-center text-slate-400 hover:text-white"><i class="fas fa-user"></i><span class="text-[10px]">គណនី</span></button>
+    </div>
+
+    <script>
+        function startProcessing(feature) {
+            const modal = document.getElementById('statusModal');
+            const title = document.getElementById('statusTitle');
+            const bar = document.getElementById('progressBar');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            title.innerText = "កំពុងបង្កើត " + feature;
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 10;
+                if (progress > 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    document.getElementById('statusMsg').innerText = "រួចរាល់! វីដេអូរបស់អ្នកត្រូវបានរក្សាទុកក្នុងបណ្ណាល័យ។";
+                    document.getElementById('loader').innerHTML = '<i class="fas fa-check-circle text-emerald-500"></i>';
+                    document.getElementById('loader').classList.remove('animate-spin');
+                }
+                bar.style.width = progress + "%";
+            }, 300);
+        }
+
+        function generateRelaxing() {
+            const hours = document.getElementById('relaxHours').value || 1;
+            startProcessing(`តន្ត្រីសម្រាកកាយ ${hours} ម៉ោង`);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('statusModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            // Reset for next time
+            document.getElementById('progressBar').style.width = "0%";
+            document.getElementById('loader').innerHTML = '<i class="fas fa-circle-notch"></i>';
+            document.getElementById('loader').classList.add('animate-spin');
+        }
+    </script>
+</body>
+</html>
